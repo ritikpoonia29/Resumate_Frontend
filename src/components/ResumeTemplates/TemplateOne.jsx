@@ -54,7 +54,6 @@ const TemplateOne = ({ resumeData, colorPalette, containerWidth, download }) => 
     setScale(containerWidth / actualWidth);
   }, [containerWidth]);
 
-  console.log("Download 1: ", download)
   return (
     <div
       ref={resumeRef}

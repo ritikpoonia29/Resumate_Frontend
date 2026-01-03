@@ -10,7 +10,6 @@ const RenderResume = ({
   containerWidth,
   download
 }) => {
-  console.log("Download Switch: ", download)
   switch (templateId) {
     case "01":
       return (

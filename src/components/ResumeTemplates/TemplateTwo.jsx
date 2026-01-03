@@ -45,7 +45,6 @@ const TemplateTwo = ({ resumeData, colorPalette, containerWidth, download }) => 
     setScale(containerWidth / baseWidth);
   }, [containerWidth]);
 
-  console.log("Download 2: ", download)
 
   return (
     <div

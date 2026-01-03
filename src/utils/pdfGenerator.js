@@ -44,8 +44,6 @@ export const generatePDFFromElement = async (element, filename = 'resume.pdf', o
       scrollY: 0,
     });
 
-    console.log("scrollHeight:", clone.scrollHeight);
-console.log("getBoundingClientRect:", clone.getBoundingClientRect().height);
 
     // Convert to JPEG (much smaller than PNG)
     const dataUrl = canvas.toDataURL('image/jpeg', quality);

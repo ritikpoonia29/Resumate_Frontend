@@ -458,7 +458,6 @@ const EditResume = () => {
 
       if (response.data && response.data._id) {
         const resumeInfo = response.data;
-        console.log("Fetched resume data:", resumeInfo);
 
         setResumeData((prevState) => ({
           ...prevState,
@@ -589,7 +588,6 @@ const EditResume = () => {
   // const downloadElement = document.querySelector(".w-full h-full bg-white")
   const downloadResume = () => {
     setDownload(true);
-    console.log("Resume Height", resumeDownloadRef.current)
   };
 
   useEffect(()=>{
