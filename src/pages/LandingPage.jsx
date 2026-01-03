@@ -19,14 +19,22 @@ import Modal from "../components/Modal";
 import ProfileInfoCard from "../components/Cards/ProfileInfoCard";
 import { UserContext } from "../context/userContext";
 import paymentService from "../services/paymentService";
+import { API_PATHS } from "../utils/apiPaths";
 
 const LandingPage = () => {
-  const { user } = useContext(UserContext);
+  const { user, refreshUser } = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("login");
+
+  const [templateRestrictions, setTemplateRestrictions] = useState({
+      availableTemplates: [],
+      // subscriptionPlan: "basic",
+      subscriptionPlan: "premium",
+      isPremium: false,
+    });
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -65,9 +73,6 @@ const LandingPage = () => {
       toast.success("Welcome to Premium 🎉", { id: "payment" });
 
       await refreshUser();
-
-      const res = await axiosInstance.get(API_PATHS.AUTH.TEMPLATES);
-      setTemplateRestrictions(res.data);
     } catch (error) {
       toast.error(error.message || "Payment failed", { id: "payment" });
     }
